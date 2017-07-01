@@ -1,0 +1,43 @@
+{% extends 'base.twig' %}
+{% block title %}
+    Students
+{% endblock %}
+
+{% block page_title %}Students{% endblock %}
+
+{% block main_navigation %}
+    <li>
+        <a href="/teacher-finder/public/">
+            <i class="fa fa-dashboard"></i>
+            <span>Dashboard</span>
+
+        </a>
+    </li>
+    <li>
+        <a href="/teacher-finder/public/teachers/">
+            <i class="fa fa-users"></i>
+            <span>Teachers</span>
+        </a>
+    </li>
+    <li class="active">
+        <a href="/teacher-finder/public/students/">
+            <i class="fa fa-graduation-cap"></i>
+            <span>Students</span>
+        </a>
+    </li>
+    <li>
+        <a href="/teacher-finder/public/sale_items/">
+            <i class="fa fa-list"></i>
+            <span>Sale Items</span>
+        </a>
+    </li>
+{% endblock %}
+
+{% block breadcrumb %}
+    <li>
+        <a href="/teacher-finder/public/">
+            <i class="fa fa-dashboard"></i>Dashboard
+        </a>
+    </li>
+    <li class="active">Students</li>
+{% endblock %}

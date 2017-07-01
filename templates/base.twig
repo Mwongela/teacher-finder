@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}{% endblock %}::Music Teacher Finder</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <link rel="stylesheet" href="/teacher-finder/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/teacher-finder/assets/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/teacher-finder/assets/bower_components/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/teacher-finder/assets/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/teacher-finder/assets/dist/css/skins/_all-skins.min.css">
+    {% block custom_css %}{% endblock %}
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+    <header class="main-header">
+        
+        <a href="/teacher-finder/public/" class="logo">
+
+            <span class="logo-mini"><b>M</b>TF</span>
+
+            <span class="logo-lg"><b>Music</b> Teacher Finder</span>
+        </a>
+
+        <nav class="navbar navbar-static-top">
+
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+
+        </nav>
+
+        {% block header %}{% endblock %}
+
+    </header>
+
+    <aside class="main-sidebar">
+
+        <section class="sidebar">
+
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="/teacher-finder/assets/dist/img/avatar.png" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>{{ username }}</p>
+                    <a href="teacher-finder/public/logout/"><i class="fa fa-sign-out"></i> LOGOUT</a>
+                </div>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="header">MAIN NAVIGATION</li>
+                {% block main_navigation %}{% endblock %}
+            </ul>
+        </section>
+
+    </aside>
+
+    <div class="content-wrapper">
+
+        <section class="content-header">
+            <h1>
+                {% block page_title %}{% endblock %}
+            </h1>
+
+            <ol class="breadcrumb">
+                {% block breadcrumb %}{% endblock %}
+            </ol>
+        </section>
+
+        <section class="content">
+
+            {% block content %}{% endblock %}
+
+        </section>
+
+    </div>
+
+
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            Music Teacher Finder v1.0.0
+        </div>
+        <strong>Copyright &copy; <a href="#">Company Name</a>.</strong>
+    </footer>
+
+</div>
+
+<script src="/teacher-finder/assets/bower_components/jquery/dist/jquery.js"></script>
+<script src="/teacher-finder/assets/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/teacher-finder/assets/dist/js/adminlte.min.js"></script>
+
+</body>
+</html>

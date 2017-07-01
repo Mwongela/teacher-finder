@@ -1,0 +1,111 @@
+
+<section class="content-header">
+	<h1>
+		Menu
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="#!/"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li><a href="#!/">Dashboard</a></li>
+		<li class="active">Menu</li>
+	</ol>
+</section>
+<section class="content">
+	<div class="row">
+		<div class="col-xs-6">
+			<div class="box">
+				<div class="box-header">
+					<h3 class="box-title">All Menu Items</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<table ng-if="menus.length > 0" id="menu" class="table table-bordered table-hover">
+						<thead>
+						<tr>
+							<th>ID</th>
+							<th>Date</th>
+							<th>Category</th>
+							<th>Action</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="value in menus">
+							<td>{{value.id}}</td>
+							<td>{{value.date}}</td>
+							<td>{{value.category}}</td>
+							<td>
+								<button ng-click="viewMenu(value)">View</button>
+								<button ng-click="deleteMenu(value)">Delete</button>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+					<p ng-if="menus.length <= 0">No menu added. Please add menu first</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-6">
+			<div class="box">
+				<div class="box-header">
+					<h3 class="box-title">Add Menu</h3>
+				</div>
+				<div class="box-body">
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group">
+								<label for="name">Date</label>
+								<input ng-model="menu.date" required type="date" class="form-control" id="date" placeholder="Date">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<label for="name">Category</label>
+								<select ng-model="menu.category" required class="form-control">
+									<option>Breakfast</option>
+									<option>Lunch</option>
+									<option>Other</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<table id="menu" class="table table-bordered table-hover">
+								<thead>
+								<tr>
+									<th>Category</th>
+									<th>Name</th>
+									<th>Description</th>
+									<th>Price</th>
+									<th>ID</th>
+									<th>Action</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr ng-repeat="value in menu.menuItems">
+									<td>{{value.category}}</td>
+									<td>{{value.name}}</td>
+									<td>{{value.description}}</td>
+									<td>{{value.price}}</td>
+									<td>{{value.id}}</td>
+									<td><button ng-click="removeMenuItem(value)">Remove</button></td>
+								</tr>
+								<tr>
+									<td><select ng-model="selectCategory" ng-change="filterFoodByCategory()"><option ng-repeat="value in menu.aCategory">{{value}}</option></select></td>
+									<td><select ng-model="selectFood" ng-change="selectFoodFunc()"><option ng-repeat="value in menu.aFood" value="{{value.id}}">{{value.name}}</option></select></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="box-footer">
+					<div class="row">
+						<div class="col-xs-6 col-xs-offset-6">
+							<button ng-click="publishMenu()" class="btn btn-primary form-control">Publish Menu</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

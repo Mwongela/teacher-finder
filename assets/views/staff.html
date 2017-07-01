@@ -1,0 +1,88 @@
+<section class="content-header">
+	<h1>
+		Staff
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="#!/"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li><a href="#!/">Dashboard</a></li>
+		<li class="active">Staff</li>
+	</ol>
+</section>
+<section class="content">
+	<div class="row">
+		<div class="col-xs-8">
+			<div class="box">
+				<div class="box-header">
+					<h3 class="box-title">All Staff</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<table id="staff" class="table table-bordered table-hover">
+						<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Phone</th>
+							<th>Email Address</th>
+							<th>Role</th>
+							<th>Action</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="staff in staffs">
+							<td>{{staff.id}}</td>
+							<td>{{staff.name}}</td>
+							<td>{{staff.phone}}</td>
+							<td>{{staff.email}}</td>
+							<td>{{staff.role}}</td>
+							<td>
+								<button ng-click="deleteStaff(staff)">Delete</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-4">
+			<form id="add-staff" ng-submit="formSubmitted()">
+				<div class="box">
+					<div class="box-header">
+						<h3 class="box-title">Add Staff</h3>
+					</div>
+					<div class="box-body">
+							<div class="form-group">
+								<label for="name">Staff Name</label>
+								<input ng-model="staff.name" required type="text" class="form-control" id="name" placeholder="Enter name">
+							</div>
+
+							<div class="form-group">
+								<label for="phoneNumber">Phone Number</label>
+								<input ng-model="staff.phone" required type="text" class="form-control" id="phoneNumber" placeholder="Enter Phone Number">
+							</div>
+
+							<div class="form-group">
+								<label for="email">Email Address</label>
+								<input ng-model="staff.email" required type="email" class="form-control" id="email" placeholder="Enter email">
+							</div>
+
+							<div class="form-group">
+								<label for="password">Password</label>
+								<input ng-model="staff.pwd" required type="password" class="form-control" id="password" placeholder="Enter Password">
+							</div>
+
+							<div class="form-group">
+								<label for="role">Staff Role</label>
+								<select required ng-model="staff.role" id="role" class="form-control">
+									<option value="chef" selected="selected">Chef</option>
+									<option value="cashier">Cashier</option>
+								</select>
+							</div>
+					</div>
+					<div class="box-footer">
+						<button type="submit" class="btn btn-primary form-control">Add Staff</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,89 @@
+<section class="content-header">
+  <h1>
+    Booking
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#!/"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="#!/">Dashboard</a></li>
+    <li class="active">Booking</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">All Bookings</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table id="staff" class="table table-bordered table-hover">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Customer Name</th>
+              <th>Total Amount</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="booking in bookings">
+              <td>{{booking.id}}</td>
+              <td>{{booking.date}}</td>
+              <td>{{booking.status}}</td>
+              <td>{{booking.customer_name}}</td>
+              <td>{{booking.total}}</td>
+              <td>
+                <button ng-click="showBooking(booking)">View</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div ng-show="booking.id" class="box">
+        <div class="box-header">
+          <h3 class="box-title">Booking Details</h3>
+        </div>
+        <div class="box-body">
+          <div class="row">
+            <div class="col-xs-6">
+              <h2>ID {{booking.id}}</h2>
+              <h3>{{booking.customer_name}}</h3>
+              <h4>{{booking.customer_email}}</h4>
+              <h4>{{booking.customer_phone}}</h4>
+            </div>
+            <div class="col-xs-6">
+              <h4>Date<br><strong>{{booking.date}}<strong></h4>
+              <h4>Total Amount<br><strong>Kshs. {{booking.booking_total}}</strong></h4>
+              <h4>Status<br><strong>{{booking.status}}</strong></h4>
+              <button ng-click="processBooking(booking.id)">Process Booking</button>
+
+            </div>
+          </div>
+         <table class="table table-bordered table-hover">
+           <thead>
+             <tr>
+               <th>Name</th>
+               <th>Price</th>
+               <th>Quantity</th>
+               <th>Total</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr ng-repeat="item in booking.booking_item">
+               <td>{{item.name}}</td>
+               <td>{{item.price}}</td>
+               <td>{{item.quantity}}</td>
+               <td>{{item.quantity * item.price}}</td>
+             </tr>
+           </tbody>
+         </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

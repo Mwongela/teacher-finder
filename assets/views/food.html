@@ -1,0 +1,89 @@
+<section class="content-header">
+	<h1>
+		Food
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="#!/"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li><a href="#!/">Dashboard</a></li>
+		<li class="active">Food</li>
+	</ol>
+</section>
+<section class="content">
+	<div class="row">
+		<div class="col-xs-8">
+			<div class="box">
+				<div class="box-header">
+					<h3 class="box-title">All Food Items</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<table ng-if="foods.length > 0" id="staff" class="table table-bordered table-hover">
+						<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Category</th>
+							<th>Price</th>
+							<th>Action</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="value in foods">
+							<td>{{value.id}}</td>
+							<td>{{value.name}}</td>
+							<td>{{value.description}}</td>
+							<td>{{value.category}}</td>
+							<td>{{value.price}}</td>
+							<td>
+								<button ng-click="">Edit</button>
+								<button ng-click="deleteFood(value)">Delete</button>
+							</td>
+						</tr>
+					</table>
+					<p ng-if="foods.length <= 0">No food added. Please add food first</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-4">
+			<form id="add-staff" ng-submit="formSubmitted()">
+				<input ng-model="food.id" type="hidden" id="food_id"/>
+				<div class="box">
+					<div class="box-header">
+						<h3 class="box-title">Add Food</h3>
+					</div>
+					<div class="box-body">
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input ng-model="food.name" required type="text" class="form-control" id="name" placeholder="Enter food name">
+						</div>
+
+						<div class="form-group">
+							<label for="description">Description</label>
+							<textarea ng-model="food.description" id="description" class="form-control" placeholder="Food Description"></textarea>
+							</div>
+
+						<div class="form-group">
+							<label for="category">Category</label>
+							<select required ng-model="food.category" id="category" class="form-control">
+								<option value="drink" selected="selected">Drink</option>
+								<option value="salad">Salad</option>
+								<option value="starch">Starch</option>
+								<option value="protein">Protein</option>
+								<option value="snack">Snack</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label for="price">Price</label>
+							<input ng-model="food.price" required type="number" class="form-control" id="price" placeholder="Enter Price">
+						</div>
+					</div>
+					<div class="box-footer">
+						<button type="submit" class="btn btn-primary form-control">Add Food</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
